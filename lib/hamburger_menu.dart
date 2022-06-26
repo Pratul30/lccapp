@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class HamburgerMenu extends StatelessWidget {
+  List<dynamic> responsejson;
+  Function product;
+
+  HamburgerMenu(this.responsejson, this.product);
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -10,13 +17,19 @@ class HamburgerMenu extends StatelessWidget {
         automaticallyImplyLeading: false,
       ),
       Divider(),
-      ListTile(
-          leading: Icon(Icons.shop),
-          title: Text('Mobiles'),
-          onTap: () {
-            Navigator.of(context).pushReplacementNamed('/');
-          }),
-      Divider(),
+      ...responsejson.map(
+        (ele) {
+          return ListTile(
+            leading: Icon(Icons.smartphone),
+            title: Text(ele['name']),
+            onTap: () {
+              print(ele);
+              Navigator.pushNamed(context, '/', arguments: ele['id']);
+              product();
+            },
+          );
+        },
+      )
     ]));
   }
 }

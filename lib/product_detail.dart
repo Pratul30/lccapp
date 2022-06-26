@@ -25,6 +25,7 @@ class ProductsDetail extends StatelessWidget {
           Text(
             product.title,
           ),
+          Text(product.desc),
           SizedBox(height: 10),
           Text(product.price.toString())
         ]));

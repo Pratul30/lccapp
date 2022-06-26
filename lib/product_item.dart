@@ -38,7 +38,7 @@ class ProductItem extends StatelessWidget {
                   })),
           child: Image.network(
             productitem.imageUrl,
-            fit: BoxFit.cover,
+            fit: BoxFit.contain,
           ),
         ),
       ),
