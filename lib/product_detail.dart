@@ -13,21 +13,34 @@ class ProductsDetail extends StatelessWidget {
           title: Text(product.title),
         ),
         body: Column(children: [
-          Image.network(
-            product.imageUrl,
-            height: 200,
-            fit: BoxFit.contain,
-            width: double.infinity,
+          Container(
+            padding: EdgeInsets.all(20),
+            child: Image.network(
+              product.imageUrl,
+              height: 200,
+              fit: BoxFit.contain,
+              width: double.infinity,
+            ),
           ),
           SizedBox(
             height: 10,
           ),
           Text(
             product.title,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-          Text(product.desc),
+          Container(
+            padding: EdgeInsets.all(20),
+            child: Text(product.desc),
+          ),
           SizedBox(height: 10),
-          Text(product.price.toString())
+          Text(
+            'Price: ₹ ${product.price.toString()}',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          )
         ]));
   }
 }
