@@ -1,6 +1,6 @@
-# shop_app
+# BuyNow
 
-A new Flutter application.
+Flutter application for LCC Codathon.
 
 ## Getting Started
 
